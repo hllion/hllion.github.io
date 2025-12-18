@@ -697,14 +697,14 @@
 
                 <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank"
                     rel="noopener noreferrer">
-                    <i class="fa fa-github" style="font-size:17px"></i>
                     GitHub
                 </a>
-                <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa fa-github" style="font-size:17px"></i>
+                <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank"
+                    rel="noopener noreferrer">
                     Research Paper
                 </a>
-                <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank" rel="noopener noreferrer">
+                <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank"
+                    rel="noopener noreferrer">
                     Project
                 </a>
                 <a class="button" href="https://github.com/RoVidX-Video/RoVidX/" target="_blank"
@@ -726,40 +726,30 @@
             </p>
         </div>
 
+
         <!-- 视频主体 -->
         <div id="video-demo" class="show-neighbors"
             style="display: flex; justify-content: center; flex-direction: column; margin-top: 30px; margin-bottom: 40px;">
-
             <div style="display: flex; justify-content: center;">
                 <div style="
-            border: 4px solid #ffffff44;
-            border-radius: 2vmin;
-            padding: 8px;
-            background: #1c1c1c;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        ">
-                    <div style="
-                width: 90vw;
-                max-width: 1000px;
-                aspect-ratio: 16 / 9;
-                border-radius: 2vmin;
-                overflow: hidden;
-                background: black;
-            ">
-                        <iframe src="https://www.youtube.com/embed/M1x6_moji30?rel=0" title="RoVidX Demo Video"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen style="
-                        width: 100%;
-                        height: 100%;
-                        border: none;
-                    ">
-                        </iframe>
-                    </div>
+     border: 4px solid #ffffff44;
+     border-radius: 2vmin;
+     padding: 8px;
+     background: #1c1c1c;
+     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+     ">
+                    <video src="./assets/video_demo.mp4" playsinline controls style="
+         width: 90vw;
+         max-width: 1000px;
+         aspect-ratio: 16 / 10;
+         object-fit: contain;
+         border-radius: 2vmin;
+         background: black;
+         display: block;
+         "></video>
                 </div>
             </div>
         </div>
-
 
         <!-- ========================= -->
         <!--   Abstract Section    -->
@@ -1351,7 +1341,8 @@
 
             <!-- Task buttons -->
             <div class="task-selector">
-                <button class="task-btn active" data-task="multi_entity_collaboration">Multi-Entity Collaboration</button>
+                <button class="task-btn active" data-task="multi_entity_collaboration">Multi-Entity
+                    Collaboration</button>
                 <button class="task-btn" data-task="visual_reasoning">Visual Reasoning</button>
                 <button class="task-btn" data-task="long_horizon_planning">Long-Horizon Planning</button>
                 <button class="task-btn" data-task="spatial_relationship">Spatial Relationship</button>
@@ -1732,11 +1723,14 @@
                 padding-bottom: 8px;
             }
 
-            /* Tasks / Embodiments 组背景 */
-            .rbench-table thead tr:first-child th[colspan] {
+
+            /* 表头分组背景：Models / Rank / Avg. + Tasks + Embodiments */
+            .rbench-table thead tr:first-child th[colspan],
+            .rbench-table thead tr:first-child th:nth-child(-n+3) {
                 background: rgba(255, 255, 255, 0.05);
                 border-radius: 6px;
             }
+
 
             /* ===== Table Base Styling ===== */
             .rbench-table {
@@ -1795,6 +1789,22 @@
                 padding-bottom: 10px;
                 border-radius: 8px;
             }
+
+            .rbench-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                border-radius: 14px;
+
+                padding: 0px 20px 18px 20px;
+                margin-top: 18px;
+
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+
+                box-shadow:
+                    0 8px 30px rgba(0, 0, 0, 0.35),
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            }
         </style>
 
         <section id="rbench-results" style="max-width: 1300px; margin: 80px auto;">
@@ -1808,345 +1818,344 @@
                 commercial, and robotics-specific families. The "Avg." column shows the mean score across nine
                 indicators.
             </p>
+            <div class="rbench-card">
+                <div class="rbench-wrapper">
+                    <table class="rbench-table">
+                        <thead>
+                            <tr>
+                                <th>Models</th>
+                                <th>Rank</th>
+                                <th>Avg.</th>
 
-            <div class="rbench-wrapper">
-                <table class="rbench-table">
+                                <th colspan="5">Tasks</th>
+                                <th colspan="4">Embodiments</th>
+                            </tr>
 
-                    <thead>
-                        <tr>
-                            <th>Models</th>
-                            <th>Rank</th>
-                            <th>Avg.</th>
-
-                            <th colspan="5">Tasks</th>
-                            <th colspan="4">Embodiments</th>
-                        </tr>
-
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>Manipulation</th>
-                            <th>Long-horizon</th>
-                            <th>Multi-entity</th>
-                            <th>Spatial</th>
-                            <th>Reasoning</th>
-                            <th>Single arm</th>
-                            <th>Dual arm</th>
-                            <th>Quadruped</th>
-                            <th>Humanoid</th>
-                        </tr>
-                    </thead>
-
-
-
-
-                    <tbody>
-
-                        <!-- ====================== OPEN SOURCE ====================== -->
-                        <tr class="rbench-category">
-                            <td colspan="12"><i>Open-source</i></td>
-                        </tr>
-
-                        <tr>
-                            <td>Wan2.2_A14B</td>
-                            <td>5</td>
-                            <td>0.657</td>
-                            <td>0.471</td>
-                            <td>0.582</td>
-                            <td>0.646</td>
-                            <td>0.595</td>
-                            <td>0.462</td>
-                            <td>0.776</td>
-                            <td>0.758</td>
-                            <td>0.820</td>
-                            <td>0.807</td>
-                        </tr>
-
-                        <tr>
-                            <td>LongCat-Video</td>
-                            <td>8</td>
-                            <td>0.598</td>
-                            <td>0.522</td>
-                            <td>0.547</td>
-                            <td>0.547</td>
-                            <td>0.420</td>
-                            <td>0.252</td>
-                            <td>0.729</td>
-                            <td>0.738</td>
-                            <td>0.819</td>
-                            <td>0.810</td>
-                        </tr>
-
-                        <tr>
-                            <td>Wan2.2_5B</td>
-                            <td>10</td>
-                            <td>0.554</td>
-                            <td>0.444</td>
-                            <td>0.502</td>
-                            <td>0.548</td>
-                            <td>0.477</td>
-                            <td>0.315</td>
-                            <td>0.556</td>
-                            <td>0.637</td>
-                            <td>0.746</td>
-                            <td>0.766</td>
-                        </tr>
-
-                        <tr>
-                            <td>Wan2.1_14B</td>
-                            <td>11</td>
-                            <td>0.548</td>
-                            <td>0.433</td>
-                            <td>0.473</td>
-                            <td>0.555</td>
-                            <td>0.385</td>
-                            <td>0.276</td>
-                            <td>0.588</td>
-                            <td>0.679</td>
-                            <td>0.740</td>
-                            <td>0.804</td>
-                        </tr>
-
-                        <tr>
-                            <td>SkyReels</td>
-                            <td>12</td>
-                            <td>0.533</td>
-                            <td>0.361</td>
-                            <td>0.408</td>
-                            <td>0.503</td>
-                            <td>0.472</td>
-                            <td>0.293</td>
-                            <td>0.622</td>
-                            <td>0.686</td>
-                            <td>0.758</td>
-                            <td>0.698</td>
-                        </tr>
-
-                        <tr>
-                            <td>LTX-Video</td>
-                            <td>13</td>
-                            <td>0.518</td>
-                            <td>0.440</td>
-                            <td>0.389</td>
-                            <td>0.535</td>
-                            <td>0.388</td>
-                            <td>0.273</td>
-                            <td>0.593</td>
-                            <td>0.650</td>
-                            <td>0.714</td>
-                            <td>0.686</td>
-                        </tr>
-
-                        <tr>
-                            <td>FramePack</td>
-                            <td>14</td>
-                            <td>0.482</td>
-                            <td>0.326</td>
-                            <td>0.291</td>
-                            <td>0.451</td>
-                            <td>0.412</td>
-                            <td>0.233</td>
-                            <td>0.484</td>
-                            <td>0.605</td>
-                            <td>0.810</td>
-                            <td>0.732</td>
-                        </tr>
-
-                        <tr>
-                            <td>CogVideoX_5B</td>
-                            <td>15</td>
-                            <td>0.414</td>
-                            <td>0.300</td>
-                            <td>0.337</td>
-                            <td>0.400</td>
-                            <td>0.206</td>
-                            <td>0.170</td>
-                            <td>0.454</td>
-                            <td>0.542</td>
-                            <td>0.648</td>
-                            <td>0.670</td>
-                        </tr>
-
-                        <tr>
-                            <td>HunyuanVideo</td>
-                            <td>16</td>
-                            <td>0.403</td>
-                            <td>0.370</td>
-                            <td>0.318</td>
-                            <td>0.312</td>
-                            <td>0.401</td>
-                            <td>0.153</td>
-                            <td>0.336</td>
-                            <td>0.392</td>
-                            <td>0.678</td>
-                            <td>0.668</td>
-                        </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Manipulation</th>
+                                <th>Long-horizon</th>
+                                <th>Multi-entity</th>
+                                <th>Spatial</th>
+                                <th>Reasoning</th>
+                                <th>Single arm</th>
+                                <th>Dual arm</th>
+                                <th>Quadruped</th>
+                                <th>Humanoid</th>
+                            </tr>
+                        </thead>
 
 
 
 
-                        <!-- ====================== COMMERCIAL ====================== -->
-                        <tr class="rbench-category">
-                            <td colspan="12"><i>Commercial</i></td>
-                        </tr>
+                        <tbody>
 
-                        <tr>
-                            <td>Wan 2.5</td>
-                            <td class="top1">1</td>
-                            <td>0.725</td>
+                            <!-- ====================== OPEN SOURCE ====================== -->
+                            <tr class="rbench-category">
+                                <td colspan="12"><i>Open-source</i></td>
+                            </tr>
 
-                            <td>0.544</td>
-                            <td class="sub1">0.707</td>
-                            <td>0.627</td>
-                            <td>0.749</td>
-                            <td>0.558</td>
+                            <tr>
+                                <td>Wan2.2_A14B</td>
+                                <td>5</td>
+                                <td>0.657</td>
+                                <td>0.471</td>
+                                <td>0.582</td>
+                                <td>0.646</td>
+                                <td>0.595</td>
+                                <td>0.462</td>
+                                <td>0.776</td>
+                                <td>0.758</td>
+                                <td>0.820</td>
+                                <td>0.807</td>
+                            </tr>
 
-                            <td class="sub1">0.847</td>
-                            <td>0.793</td>
-                            <td class="sub1">0.891</td>
-                            <td>0.819</td>
-                        </tr>
+                            <tr>
+                                <td>LongCat-Video</td>
+                                <td>8</td>
+                                <td>0.598</td>
+                                <td>0.522</td>
+                                <td>0.547</td>
+                                <td>0.547</td>
+                                <td>0.420</td>
+                                <td>0.252</td>
+                                <td>0.729</td>
+                                <td>0.738</td>
+                                <td>0.819</td>
+                                <td>0.810</td>
+                            </tr>
 
-                        <tr>
-                            <td>Hailuo v2</td>
-                            <td class="top2">2</td>
-                            <td>0.723</td>
+                            <tr>
+                                <td>Wan2.2_5B</td>
+                                <td>10</td>
+                                <td>0.554</td>
+                                <td>0.444</td>
+                                <td>0.502</td>
+                                <td>0.548</td>
+                                <td>0.477</td>
+                                <td>0.315</td>
+                                <td>0.556</td>
+                                <td>0.637</td>
+                                <td>0.746</td>
+                                <td>0.766</td>
+                            </tr>
 
-                            <td class="sub1">0.614</td>
-                            <td>0.672</td>
-                            <td>0.671</td>
-                            <td class="sub1">0.820</td>
-                            <td>0.566</td>
+                            <tr>
+                                <td>Wan2.1_14B</td>
+                                <td>11</td>
+                                <td>0.548</td>
+                                <td>0.433</td>
+                                <td>0.473</td>
+                                <td>0.555</td>
+                                <td>0.385</td>
+                                <td>0.276</td>
+                                <td>0.588</td>
+                                <td>0.679</td>
+                                <td>0.740</td>
+                                <td>0.804</td>
+                            </tr>
 
-                            <td>0.790</td>
-                            <td>0.810</td>
-                            <td>0.780</td>
-                            <td>0.785</td>
-                        </tr>
+                            <tr>
+                                <td>SkyReels</td>
+                                <td>12</td>
+                                <td>0.533</td>
+                                <td>0.361</td>
+                                <td>0.408</td>
+                                <td>0.503</td>
+                                <td>0.472</td>
+                                <td>0.293</td>
+                                <td>0.622</td>
+                                <td>0.686</td>
+                                <td>0.758</td>
+                                <td>0.698</td>
+                            </tr>
 
-                        <tr>
-                            <td>Veo 3</td>
-                            <td class="top3">3</td>
-                            <td>0.717</td>
+                            <tr>
+                                <td>LTX-Video</td>
+                                <td>13</td>
+                                <td>0.518</td>
+                                <td>0.440</td>
+                                <td>0.389</td>
+                                <td>0.535</td>
+                                <td>0.388</td>
+                                <td>0.273</td>
+                                <td>0.593</td>
+                                <td>0.650</td>
+                                <td>0.714</td>
+                                <td>0.686</td>
+                            </tr>
 
-                            <td>0.567</td>
-                            <td>0.654</td>
-                            <td>0.628</td>
-                            <td>0.757</td>
-                            <td>0.571</td>
+                            <tr>
+                                <td>FramePack</td>
+                                <td>14</td>
+                                <td>0.482</td>
+                                <td>0.326</td>
+                                <td>0.291</td>
+                                <td>0.451</td>
+                                <td>0.412</td>
+                                <td>0.233</td>
+                                <td>0.484</td>
+                                <td>0.605</td>
+                                <td>0.810</td>
+                                <td>0.732</td>
+                            </tr>
 
-                            <td>0.799</td>
-                            <td>0.798</td>
-                            <td>0.859</td>
-                            <td>0.822</td>
-                        </tr>
+                            <tr>
+                                <td>CogVideoX_5B</td>
+                                <td>15</td>
+                                <td>0.414</td>
+                                <td>0.300</td>
+                                <td>0.337</td>
+                                <td>0.400</td>
+                                <td>0.206</td>
+                                <td>0.170</td>
+                                <td>0.454</td>
+                                <td>0.542</td>
+                                <td>0.648</td>
+                                <td>0.670</td>
+                            </tr>
 
-                        <tr>
-                            <td>Seedance 1.0</td>
-                            <td>4</td>
-                            <td>0.712</td>
-
-                            <td>0.575</td>
-                            <td>0.638</td>
-                            <td class="sub1">0.700</td>
-                            <td>0.625</td>
-                            <td class="sub1">0.578</td>
-
-                            <td>0.774</td>
-                            <td class="sub1">0.832</td>
-                            <td>0.848</td>
-                            <td class="sub1">0.841</td>
-                        </tr>
+                            <tr>
+                                <td>HunyuanVideo</td>
+                                <td>16</td>
+                                <td>0.403</td>
+                                <td>0.370</td>
+                                <td>0.318</td>
+                                <td>0.312</td>
+                                <td>0.401</td>
+                                <td>0.153</td>
+                                <td>0.336</td>
+                                <td>0.392</td>
+                                <td>0.678</td>
+                                <td>0.668</td>
+                            </tr>
 
 
 
 
-                        <!-- ====================== ROBOTICS-SPECIFIC ====================== -->
-                        <tr class="rbench-category">
-                            <td colspan="12"><i>Robotics-specific</i></td>
-                        </tr>
+                            <!-- ====================== COMMERCIAL ====================== -->
+                            <tr class="rbench-category">
+                                <td colspan="12"><i>Commercial</i></td>
+                            </tr>
 
-                        <tr>
-                            <td>Cosmos 2.5</td>
-                            <td>6</td>
-                            <td>0.635</td>
-                            <td>0.485</td>
-                            <td>0.622</td>
-                            <td>0.536</td>
-                            <td>0.463</td>
-                            <td>0.479</td>
-                            <td>0.739</td>
-                            <td>0.782</td>
-                            <td>0.822</td>
-                            <td>0.791</td>
-                        </tr>
+                            <tr>
+                                <td>Wan 2.5</td>
+                                <td class="top1">1</td>
+                                <td>0.725</td>
 
-                        <tr>
-                            <td>DreamGen(gr1)</td>
-                            <td>7</td>
-                            <td>0.604</td>
-                            <td>0.429</td>
-                            <td>0.484</td>
-                            <td>0.577</td>
-                            <td>0.583</td>
-                            <td>0.339</td>
-                            <td>0.744</td>
-                            <td>0.766</td>
-                            <td>0.760</td>
-                            <td>0.760</td>
-                        </tr>
+                                <td>0.544</td>
+                                <td class="sub1">0.707</td>
+                                <td>0.627</td>
+                                <td>0.749</td>
+                                <td>0.558</td>
 
-                        <tr>
-                            <td>DreamGen(droid)</td>
-                            <td>9</td>
-                            <td>0.567</td>
-                            <td>0.408</td>
-                            <td>0.473</td>
-                            <td>0.529</td>
-                            <td>0.504</td>
-                            <td>0.383</td>
-                            <td>0.687</td>
-                            <td>0.681</td>
-                            <td>0.712</td>
-                            <td>0.732</td>
-                        </tr>
+                                <td class="sub1">0.847</td>
+                                <td>0.793</td>
+                                <td class="sub1">0.891</td>
+                                <td>0.819</td>
+                            </tr>
 
-                        <tr>
-                            <td>UnifoLM-WMA-0</td>
-                            <td>17</td>
-                            <td>0.289</td>
-                            <td>0.110</td>
-                            <td>0.102</td>
-                            <td>0.125</td>
-                            <td>0.057</td>
-                            <td>0.000</td>
-                            <td>0.323</td>
-                            <td>0.227</td>
-                            <td>0.387</td>
-                            <td>0.221</td>
-                        </tr>
+                            <tr>
+                                <td>Hailuo v2</td>
+                                <td class="top2">2</td>
+                                <td>0.723</td>
 
-                        <tr>
-                            <td>Vidar</td>
-                            <td>18</td>
-                            <td>0.172</td>
-                            <td>0.173</td>
-                            <td>0.115</td>
-                            <td>0.205</td>
-                            <td>0.145</td>
-                            <td>0.068</td>
-                            <td>0.400</td>
-                            <td>0.539</td>
-                            <td>0.488</td>
-                            <td>0.475</td>
-                        </tr>
+                                <td class="sub1">0.614</td>
+                                <td>0.672</td>
+                                <td>0.671</td>
+                                <td class="sub1">0.820</td>
+                                <td>0.566</td>
 
-                    </tbody>
+                                <td>0.790</td>
+                                <td>0.810</td>
+                                <td>0.780</td>
+                                <td>0.785</td>
+                            </tr>
 
-                </table>
+                            <tr>
+                                <td>Veo 3</td>
+                                <td class="top3">3</td>
+                                <td>0.717</td>
+
+                                <td>0.567</td>
+                                <td>0.654</td>
+                                <td>0.628</td>
+                                <td>0.757</td>
+                                <td>0.571</td>
+
+                                <td>0.799</td>
+                                <td>0.798</td>
+                                <td>0.859</td>
+                                <td>0.822</td>
+                            </tr>
+
+                            <tr>
+                                <td>Seedance 1.0</td>
+                                <td>4</td>
+                                <td>0.712</td>
+
+                                <td>0.575</td>
+                                <td>0.638</td>
+                                <td class="sub1">0.700</td>
+                                <td>0.625</td>
+                                <td class="sub1">0.578</td>
+
+                                <td>0.774</td>
+                                <td class="sub1">0.832</td>
+                                <td>0.848</td>
+                                <td class="sub1">0.841</td>
+                            </tr>
+
+
+
+
+                            <!-- ====================== ROBOTICS-SPECIFIC ====================== -->
+                            <tr class="rbench-category">
+                                <td colspan="12"><i>Robotics-specific</i></td>
+                            </tr>
+
+                            <tr>
+                                <td>Cosmos 2.5</td>
+                                <td>6</td>
+                                <td>0.635</td>
+                                <td>0.485</td>
+                                <td>0.622</td>
+                                <td>0.536</td>
+                                <td>0.463</td>
+                                <td>0.479</td>
+                                <td>0.739</td>
+                                <td>0.782</td>
+                                <td>0.822</td>
+                                <td>0.791</td>
+                            </tr>
+
+                            <tr>
+                                <td>DreamGen(gr1)</td>
+                                <td>7</td>
+                                <td>0.604</td>
+                                <td>0.429</td>
+                                <td>0.484</td>
+                                <td>0.577</td>
+                                <td>0.583</td>
+                                <td>0.339</td>
+                                <td>0.744</td>
+                                <td>0.766</td>
+                                <td>0.760</td>
+                                <td>0.760</td>
+                            </tr>
+
+                            <tr>
+                                <td>DreamGen(droid)</td>
+                                <td>9</td>
+                                <td>0.567</td>
+                                <td>0.408</td>
+                                <td>0.473</td>
+                                <td>0.529</td>
+                                <td>0.504</td>
+                                <td>0.383</td>
+                                <td>0.687</td>
+                                <td>0.681</td>
+                                <td>0.712</td>
+                                <td>0.732</td>
+                            </tr>
+
+                            <tr>
+                                <td>UnifoLM-WMA-0</td>
+                                <td>17</td>
+                                <td>0.289</td>
+                                <td>0.110</td>
+                                <td>0.102</td>
+                                <td>0.125</td>
+                                <td>0.057</td>
+                                <td>0.000</td>
+                                <td>0.323</td>
+                                <td>0.227</td>
+                                <td>0.387</td>
+                                <td>0.221</td>
+                            </tr>
+
+                            <tr>
+                                <td>Vidar</td>
+                                <td>18</td>
+                                <td>0.172</td>
+                                <td>0.173</td>
+                                <td>0.115</td>
+                                <td>0.205</td>
+                                <td>0.145</td>
+                                <td>0.068</td>
+                                <td>0.400</td>
+                                <td>0.539</td>
+                                <td>0.488</td>
+                                <td>0.475</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
-
         </section>
 
 
@@ -2186,6 +2195,9 @@ border-radius: 12px;
     ">
             </div>
 
+            <!-- ========================= -->
+            <!--         RoVidX-4M         -->
+            <!-- ========================= -->
         </section>
         <section id="dataset-table" class="dataset-table-section"
             style="max-width: 1200px; margin: 80px auto; padding: 0 20px;">
@@ -2193,139 +2205,140 @@ border-radius: 12px;
             <h3 style="text-align:center; color:white; font-size: 2rem; margin-bottom: 20px;">
                 Comparison of Representative Robotic Video Datasets
             </h3>
+            <div class="rbench-card">
+                <div style="overflow-x:auto;">
+                    <table>
 
-            <div style="overflow-x:auto;">
-                <table>
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Year</th>
+                                <th>#Videos</th>
+                                <th>#Skills</th>
+                                <th>Resolution</th>
+                                <th>Optical Flow</th>
+                                <th>Diverse Robotic Forms</th>
+                                <th>Diverse Captions</th>
+                            </tr>
+                        </thead>
 
-                    <thead>
-                        <tr>
-                            <th>Dataset</th>
-                            <th>Year</th>
-                            <th>#Videos</th>
-                            <th>#Skills</th>
-                            <th>Resolution</th>
-                            <th>Optical Flow</th>
-                            <th>Diverse Robotic Forms</th>
-                            <th>Diverse Captions</th>
-                        </tr>
-                    </thead>
+                        <tbody>
 
-                    <tbody>
+                            <tr>
+                                <td>RoboTurk</td>
+                                <td>2018</td>
+                                <td>2.1k</td>
+                                <td>2</td>
+                                <td>480P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>RoboTurk</td>
-                            <td>2018</td>
-                            <td>2.1k</td>
-                            <td>2</td>
-                            <td>480P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>RoboNet</td>
+                                <td>2019</td>
+                                <td>162k</td>
+                                <td>N/A</td>
+                                <td>240P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>RoboNet</td>
-                            <td>2019</td>
-                            <td>162k</td>
-                            <td>N/A</td>
-                            <td>240P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>BridgeData</td>
+                                <td>2021</td>
+                                <td>7.2k</td>
+                                <td>4</td>
+                                <td>480P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>BridgeData</td>
-                            <td>2021</td>
-                            <td>7.2k</td>
-                            <td>4</td>
-                            <td>480P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>RH20T</td>
+                                <td>2023</td>
+                                <td>13k</td>
+                                <td>33</td>
+                                <td>720P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>RH20T</td>
-                            <td>2023</td>
-                            <td>13k</td>
-                            <td>33</td>
-                            <td>720P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>DROID</td>
+                                <td>2024</td>
+                                <td>76k</td>
+                                <td>86</td>
+                                <td>720P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>DROID</td>
-                            <td>2024</td>
-                            <td>76k</td>
-                            <td>86</td>
-                            <td>720P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>Open X-Embodiment</td>
+                                <td>2024</td>
+                                <td>1.4M</td>
+                                <td>217</td>
+                                <td>64P—720P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>Open X-Embodiment</td>
-                            <td>2024</td>
-                            <td>1.4M</td>
-                            <td>217</td>
-                            <td>64P—720P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>Fourier ActionNet</td>
+                                <td>2025</td>
+                                <td>13k</td>
+                                <td>16</td>
+                                <td>800P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>Fourier ActionNet</td>
-                            <td>2025</td>
-                            <td>13k</td>
-                            <td>16</td>
-                            <td>800P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>Humanoid Everyday</td>
+                                <td>2025</td>
+                                <td>10.3k</td>
+                                <td>221</td>
+                                <td>320P—720P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>Humanoid Everyday</td>
-                            <td>2025</td>
-                            <td>10.3k</td>
-                            <td>221</td>
-                            <td>320P—720P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <tr>
+                                <td>Agibot World</td>
+                                <td>2025</td>
+                                <td>1M</td>
+                                <td>87</td>
+                                <td>480P</td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                                <td><span class="cross">✗</span></td>
+                            </tr>
 
-                        <tr>
-                            <td>Agibot World</td>
-                            <td>2025</td>
-                            <td>1M</td>
-                            <td>87</td>
-                            <td>480P</td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
+                            <!-- Ours Row -->
+                            <tr class="dataset-ours">
+                                <td>RoVidX-4M (Ours)</td>
+                                <td>2025</td>
+                                <td>4M</td>
+                                <td>1349</td>
+                                <td>720P</td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                                <td><span class="check">✓</span></td>
+                            </tr>
 
-                        <!-- Ours Row -->
-                        <tr class="dataset-ours">
-                            <td>RoVidX-4M (Ours)</td>
-                            <td>2025</td>
-                            <td>4M</td>
-                            <td>1349</td>
-                            <td>720P</td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
+                        </tbody>
 
-                    </tbody>
-
-                </table>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -2384,8 +2397,8 @@ border-radius: 12px;
             <h3>BibTeX</h3>
             <pre class="bibtex-code">@article{deng2025rethinking,
     title={Rethinking Video Foundation Model for the Embodied World},
-    author={Deng, Yufan and Guo, Xun and Yin, Yuanyang and Fang, Jacob Zhiyuan and Yang, Yiding and Wang, Yizhi and Yuan, Shenghai and Wang, Angtian and Liu, Bo and Huang, Haibin and others},
-    journal={arXiv preprint arXiv:2505.23742},
+    author={Deng, Yufan and Pan, Zilin and Yin, Yuanyang and Fang, Jacob Zhiyuan and Yang, Yiding and Wang, Yizhi and Yuan, Shenghai and Wang, Angtian and Liu, Bo and Huang, Haibin and others},
+    journal={arXiv preprint arXiv:2512.23742},
     year={2025}
     }</pre>
         </section>
